@@ -4,12 +4,13 @@
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
-Version:	0.5.14
+Version:	0.5.15
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.burtonini.com/computing/%{name}-%{version}.tar.gz
-# Source0-md5:	21ac5d1b9497b3bba2e4050b995bb865
+# Source0-md5:	f1c344b2dcd3f0efd4f9e0318f8526e1
+Patch0:		%{name}-buildfix.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
@@ -38,6 +39,7 @@ Sound Juicer, ripper p³yt CD u¿ywaj±cy GTK+ i GStreamera.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__aclocal}
