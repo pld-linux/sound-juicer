@@ -2,20 +2,24 @@ Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
 Version:	0.5.10.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.burtonini.com/computing/%{name}-%{version}.tar.gz
 # Source0-md5:	a879cce136a1f26274f0cb1906fbec71
+Patch0:		%{name}-locale-names.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gtk+2-devel
 BuildRequires:	gstreamer-cdparanoia >= 0.6.1
 BuildRequires:	gstreamer-devel >= 0.6.1
 BuildRequires:	gstreamer-vorbis >= 0.6.1
+Buildrequires:	intltool >= 0.20
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel
-BuildRequires:	libmusicbrainz-devel >= 2.0.1
+BuildRequires:	libmusicbrainz-devel >= 2.1.0
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
 Requires:	gstreamer-cdparanoia >= 0.6.1
@@ -30,8 +34,14 @@ Sound Juicer, ripper p³yt CD u¿ywaj±cy GTK+ i GStreamera.
 
 %prep
 %setup -q
+%patch0 -p1
+
+mv po/{no,nb}.po
 
 %build
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure \
 	--disable--schemas-install
 
