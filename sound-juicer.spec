@@ -1,16 +1,16 @@
 # Conditional build
-%bcond_with	hal	# enable HAL support
+%bcond_without	hal	# disable HAL support
 #
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
 Version:	0.5.13
-Release:	0.91
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.burtonini.com/computing/%{name}-%{version}.tar.gz
 # Source0-md5:	0b3fcd80d91c78153961378b5c2f01a3
-Patch0:		%{name}-am_include.patch
+Patch0:		%{name}-hal_build_fixes.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
