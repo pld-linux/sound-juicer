@@ -5,12 +5,12 @@
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
-Version:	0.6.0
-Release:	1
+Version:	2.10.0
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.burtonini.com/computing/%{name}-%{version}.tar.gz
-# Source0-md5:	bab9ac8e3f0ba66f360485aafdd379f8
+# Source0-md5:	29c03ae0a0b2138b52108e7d38fa5fd0
 Patch0:		%{name}-desktop.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
@@ -18,10 +18,10 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel
 BuildRequires:	gnome-media-devel
-BuildRequires:	gstreamer-GConf-devel >= 0.8.1
-BuildRequires:	gstreamer-cdparanoia >= 0.8.1
-BuildRequires:	gstreamer-devel >= 0.8.3
-BuildRequires:	gstreamer-vorbis >= 0.8.1
+BuildRequires:	gstreamer-GConf-devel >= 0.8.7
+BuildRequires:	gstreamer-cdparanoia >= 0.8.7
+BuildRequires:	gstreamer-devel >= 0.8.9
+BuildRequires:	gstreamer-vorbis >= 0.8.7
 %{?with_hal:BuildRequires:	hal-devel >= 0.2.98-5}
 BuildRequires:	intltool >= 0.20
 BuildRequires:	libglade2-devel
@@ -30,8 +30,8 @@ BuildRequires:	libmusicbrainz-devel >= 2.1.0
 BuildRequires:	scrollkeeper >= 0.3.5
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
-Requires:	gstreamer-cdparanoia >= 0.8.1
-Requires:	gstreamer-vorbis >= 0.8.1
+Requires:	gstreamer-cdparanoia >= 0.8.7
+Requires:	gstreamer-vorbis >= 0.8.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
