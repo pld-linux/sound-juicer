@@ -1,23 +1,23 @@
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
-Version:	0.2
+Version:	0.4.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.burtonini.com/computing/%{name}-%{version}.tar.gz
-# Source0-md5:	3a7e4e8f4ba889fd0ab5588660c87fe6
+# Source0-md5:	79fbeb3fc6228dd1aa4c06f272b9dff5
 URL:		http://www.burtonini.com
 BuildRequires:	GConf2-devel
 BuildRequires:	gtk+2-devel
-BuildRequires:	gstreamer-cdparanoia >= 0.6.0
-BuildRequires:	gstreamer-devel >= 0.6.0
-BuildRequires:	gstreamer-vorbis >= 0.6.0
+BuildRequires:	gstreamer-cdparanoia >= 0.6.1
+BuildRequires:	gstreamer-devel >= 0.6.1
+BuildRequires:	gstreamer-vorbis >= 0.6.1
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel
-BuildRequires:	libmusicbrainz-devel >= 2.0.0
-Requires:	gstreamer-cdparanoia >= 0.6.0
-Requires:	gstreamer-vorbis >= 0.6.0
+BuildRequires:	libmusicbrainz-devel >= 2.0.1
+Requires:	gstreamer-cdparanoia >= 0.6.1
+Requires:	gstreamer-vorbis >= 0.6.1
 Requires(post):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -39,10 +39,9 @@ Sound Juicer, ripper p³yt CD u¿ywaj±cy GTK+ i GStreamera.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
-unset GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL
+	DESTDIR=$RPM_BUILD_ROOT \
+	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 %find_lang %{name} --with-gnome
 
