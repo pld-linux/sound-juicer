@@ -1,31 +1,31 @@
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
-Version:	0.5.10.1
-Release:	5
+Version:	0.5.11
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.burtonini.com/computing/%{name}-%{version}.tar.gz
-# Source0-md5:	a879cce136a1f26274f0cb1906fbec71
+# Source0-md5:	ff6fd389727de46db65330eb4a9eee4f
 Patch0:		%{name}-locale-names.patch
-Patch1:		%{name}-gstreamer08.patch
-Patch2:		%{name}-devfs.patch
+Patch1:		%{name}-devfs.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel
-BuildRequires:	gstreamer-cdparanoia >= 0.6.1
-BuildRequires:	gstreamer-devel >= 0.6.1
-BuildRequires:	gstreamer-vorbis >= 0.6.1
+BuildRequires:	gstreamer-cdparanoia >= 0.8.0
+BuildRequires:	gstreamer-devel >= 0.8.0
+BuildRequires:	gstreamer-vorbis >= 0.8.0
 Buildrequires:	intltool >= 0.20
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
+BuildRequires:	scrollkeeper >= 0.3.5
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
-Requires:	gstreamer-cdparanoia >= 0.6.1
-Requires:	gstreamer-vorbis >= 0.6.1
+Requires:	gstreamer-cdparanoia >= 0.8.0
+Requires:	gstreamer-vorbis >= 0.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,7 +38,6 @@ Sound Juicer, ripper p³yt CD u¿ywaj±cy GTK+ i GStreamera.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 mv po/{no,nb}.po
 
