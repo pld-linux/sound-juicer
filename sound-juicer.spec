@@ -1,37 +1,35 @@
-#
-# Conditional build
-%bcond_without	hal	# disable HAL support
-#
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
 Version:	2.10.0
-Release:	0.1
-License:	GPL
+Release:	2
+License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://www.burtonini.com/computing/%{name}-%{version}.tar.gz
-# Source0-md5:	29c03ae0a0b2138b52108e7d38fa5fd0
+Source0:	http://ftp.gnome.org/pub/gnome/sources/sound-juicer/2.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	2450626f15847d922e47781e3e259b83
 Patch0:		%{name}-desktop.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	gtk+2-devel
-BuildRequires:	gnome-media-devel
-BuildRequires:	gstreamer-GConf-devel >= 0.8.7
-BuildRequires:	gstreamer-cdparanoia >= 0.8.7
+BuildRequires:	autoconf >= 2.52
+BuildRequires:	automake >= 1.6
+BuildRequires:	gnome-media-devel >= 2.10.0-0.2
+BuildRequires:	gnome-vfs2-devel >= 2.10.0-2
+BuildRequires:	gstreamer-GConf-devel >= 0.8.8
+BuildRequires:	gstreamer-cdparanoia >= 0.8.8
 BuildRequires:	gstreamer-devel >= 0.8.9
-BuildRequires:	gstreamer-vorbis >= 0.8.7
-%{?with_hal:BuildRequires:	hal-devel >= 0.2.98-5}
-BuildRequires:	intltool >= 0.20
+BuildRequires:	gtk+2-devel >= 2:2.6.3
+BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel
-BuildRequires:	libgnomeui-devel
+BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
+BuildRequires:	nautilus-cd-burner-devel >= 2.10.0-2
+BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.176
 BuildRequires:	scrollkeeper >= 0.3.5
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
-Requires:	gstreamer-cdparanoia >= 0.8.7
-Requires:	gstreamer-vorbis >= 0.8.7
+Requires:	gstreamer-cdparanoia >= 0.8.8
+Requires:	nautilus-cd-burner-libs >= 2.10.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -50,8 +48,6 @@ Sound Juicer, ripper p³yt CD u¿ywaj±cy GTK+ i GStreamera.
 %{__automake}
 %configure \
 	--disable--schemas-install \
-	--%{?with_hal:en}%{!?with_hal:dis}able-hal
-
 %{__make}
 
 %install
@@ -71,6 +67,13 @@ rm -rf $RPM_BUILD_ROOT
 %post
 /usr/bin/scrollkeeper-update
 %gconf_schema_install
+%banner %{name} -e << EOF
+To be able to rip a CD, You need to install appropriate
+GStreamer plugins:
+- gstreamer-audio-formats (encoding to WAVE)
+- gstreamer-flac (encoding to FLAC)
+- gstreamer-vorbis (encoding to Ogg Vorbis)
+EOF
 
 %postun -p /usr/bin/scrollkeeper-update
 
