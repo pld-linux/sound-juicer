@@ -1,0 +1,12 @@
+diff -urN aa/sound-juicer-0.5.10.1/configure.in sound-juicer-0.5.10.1/configure.in
+--- aa/sound-juicer-0.5.10.1/configure.in	2004-02-05 17:40:43.000000000 +0100
++++ sound-juicer-0.5.10.1/configure.in	2004-02-20 18:16:29.375731968 +0100
+@@ -14,7 +14,7 @@
+ GETTEXT_PACKAGE=sound-juicer
+ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [The name of the gettext package.])
+ AC_SUBST(GETTEXT_PACKAGE)
+-ALL_LINGUAS="ar az be ca cs da de el es fr it ja ko ml nl no pl pt sr sr@Latn sv zh_CN zh_TW"
++ALL_LINGUAS="ar az be ca cs da de el es fr it ja ko ml nb nl pl pt sr sr@Latn sv zh_CN zh_TW"
+ AM_GLIB_GNU_GETTEXT
+ 
+ 
