@@ -15,7 +15,6 @@ BuildRequires:	automake >= 1.6
 BuildRequires:	gnome-media-devel >= 2.10.0-0.2
 BuildRequires:	gnome-vfs2-devel >= 2.10.0-2
 BuildRequires:	gstreamer-GConf-devel >= 0.8.8
-BuildRequires:	gstreamer-cdparanoia >= 0.8.8
 BuildRequires:	gstreamer-devel >= 0.8.9
 BuildRequires:	gtk+2-devel >= 2:2.6.3
 BuildRequires:	intltool >= 0.33
