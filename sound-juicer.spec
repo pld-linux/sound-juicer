@@ -1,18 +1,19 @@
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
-Version:	2.9.91
+Version:	2.9.92
 Release:	1
-License:	GPL
+License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/sound-juicer/2.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	f82686eff27ddfb1b0864d350dd57e86
+Source0:	http://ftp.gnome.org/pub/gnome/sources/sound-juicer/2.9/%{name}-%{version}.tar.bz2
+# Source0-md5:	1b25649be6a65bd6580fe6e8f77fa623
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.6
 BuildRequires:	gnome-media-devel >= 2.9.90
-BuildRequires:	gtk+2-devel >= 2.4.0
+BuildRequires:	gnome-vfs2-devel >= 2.9.0
+BuildRequires:	gtk+2-devel >= 2:2.6.2
 BuildRequires:	gstreamer-cdparanoia >= 0.8.7
 BuildRequires:	gstreamer-devel >= 0.8.8
 BuildRequires:	gstreamer-vorbis >= 0.8.7
@@ -20,12 +21,14 @@ BuildRequires:	intltool >= 0.20
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
-BuildRequires:	nautilus-cd-burner-devel
+BuildRequires:	nautilus-cd-burner-devel >= 2.9.0
+BuildRequires:	pkgconfig
 BuildRequires:	scrollkeeper >= 0.3.5
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
 Requires:	gstreamer-cdparanoia >= 0.8.7
 Requires:	gstreamer-vorbis >= 0.8.7
+Requires:	nautilus-cd-burner-libs >= 2.9.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,7 +46,6 @@ Sound Juicer, ripper p³yt CD u¿ywaj±cy GTK+ i GStreamera.
 %{__automake}
 %configure \
 	--disable--schemas-install
-
 %{__make}
 
 %install
