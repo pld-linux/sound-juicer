@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.burtonini.com/computing/%{name}-%{version}.tar.gz
+# Source0-md5:	3a7e4e8f4ba889fd0ab5588660c87fe6
 URL:		http://www.burtonini.com
 BuildRequires:	GConf2-devel
 BuildRequires:	gtk+2-devel
