@@ -1,7 +1,7 @@
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
-Version:	0.1
+Version:	0.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
