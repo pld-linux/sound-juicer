@@ -16,9 +16,9 @@ BuildRequires:	gstreamer-vorbis >= 0.6.1
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel
 BuildRequires:	libmusicbrainz-devel >= 2.0.1
+Requires(post):	GConf2
 Requires:	gstreamer-cdparanoia >= 0.6.1
 Requires:	gstreamer-vorbis >= 0.6.1
-Requires(post):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -57,5 +57,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_sysconfdir}/gconf/schemas/*
 %{_datadir}/%{name}
-%{_datadir}/applications/*
+%{_desktopdir}/*
 %{_pixmapsdir}/*
