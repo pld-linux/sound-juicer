@@ -11,6 +11,7 @@ URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.6
+BuildRequires:	gnome-media-devel >= 2.9.90
 BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	gstreamer-cdparanoia >= 0.8.7
 BuildRequires:	gstreamer-devel >= 0.8.8
