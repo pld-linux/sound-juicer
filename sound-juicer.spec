@@ -7,7 +7,7 @@ License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.burtonini.com/computing/%{name}-%{version}.tar.gz
 # Source0-md5:	79fbeb3fc6228dd1aa4c06f272b9dff5
-URL:		http://www.burtonini.com
+URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
 BuildRequires:	gtk+2-devel
 BuildRequires:	gstreamer-cdparanoia >= 0.6.1
