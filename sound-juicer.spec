@@ -1,5 +1,5 @@
 # Conditional build
-%bcond_with	hal     # enable HAL support
+%bcond_with	hal	# enable HAL support
 #
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
@@ -19,7 +19,7 @@ BuildRequires:	gtk+2-devel
 BuildRequires:	gstreamer-cdparanoia >= 0.8.1
 BuildRequires:	gstreamer-devel >= 0.8.3
 BuildRequires:	gstreamer-vorbis >= 0.8.1
-%{?with_hal:BuildRequires:      hal-devel >= 0.2.98}
+%{?with_hal:BuildRequires:	hal-devel >= 0.2.98}
 Buildrequires:	intltool >= 0.20
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel
