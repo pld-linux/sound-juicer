@@ -1,5 +1,5 @@
 # Conditional build
-%bcond_without  hal     # disable HAL support
+%bcond_with	hal     # enable HAL support
 #
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
