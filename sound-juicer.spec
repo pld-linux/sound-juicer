@@ -2,7 +2,7 @@ Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
 Version:	2.10.0
-Release:	2
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://ftp.gnome.org/pub/gnome/sources/sound-juicer/2.10/%{name}-%{version}.tar.bz2
