@@ -1,14 +1,13 @@
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
-Version:	0.5.12
-Release:	1
+Version:	0.5.13
+Release:	0.9
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.burtonini.com/computing/%{name}-%{version}.tar.gz
-# Source0-md5:	5ad2cbb1acb91d51d2a67f14d552ae4e
-Patch0:		%{name}-locale-names.patch
-Patch1:		%{name}-devfs.patch
+# Source0-md5:	0b3fcd80d91c78153961378b5c2f01a3
+#Patch0:		%{name}-devfs.patch //obsoleted?
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
@@ -36,10 +35,7 @@ Sound Juicer, ripper p³yt CD u¿ywaj±cy GTK+ i GStreamera.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-
-mv po/{no,nb}.po
+#%patch0 -p1 //Obsoleted?
 
 %build
 %{__aclocal}
@@ -56,6 +52,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --with-gnome
 
