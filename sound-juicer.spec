@@ -5,7 +5,7 @@ Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
 Version:	0.5.13
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.burtonini.com/computing/%{name}-%{version}.tar.gz
@@ -19,7 +19,7 @@ BuildRequires:	gtk+2-devel
 BuildRequires:	gstreamer-cdparanoia >= 0.8.1
 BuildRequires:	gstreamer-devel >= 0.8.3
 BuildRequires:	gstreamer-vorbis >= 0.8.1
-%{?with_hal:BuildRequires:	hal-devel >= 0.2.98}
+%{?with_hal:BuildRequires:	hal-devel >= 0.2.98-5}
 Buildrequires:	intltool >= 0.20
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel
