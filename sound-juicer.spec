@@ -1,12 +1,16 @@
+# Conditional build
+%bcond_without  hal     # disable HAL support
+#
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
 Version:	0.5.13
-Release:	0.9
+Release:	0.91
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.burtonini.com/computing/%{name}-%{version}.tar.gz
 # Source0-md5:	0b3fcd80d91c78153961378b5c2f01a3
+Patch0:		%{name}-am_include.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
@@ -15,6 +19,7 @@ BuildRequires:	gtk+2-devel
 BuildRequires:	gstreamer-cdparanoia >= 0.8.1
 BuildRequires:	gstreamer-devel >= 0.8.3
 BuildRequires:	gstreamer-vorbis >= 0.8.1
+%{?with_hal:BuildRequires:      hal-devel >= 0.2.98}
 Buildrequires:	intltool >= 0.20
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel
@@ -34,13 +39,15 @@ Sound Juicer, ripper p³yt CD u¿ywaj±cy GTK+ i GStreamera.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable--schemas-install
+	--disable--schemas-install \
+	--%{?with_hal:en}%{!?with_hal:dis}able-hal
 
 %{__make}
 
