@@ -1,12 +1,12 @@
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
-Version:	2.10.0
+Version:	2.10.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://ftp.gnome.org/pub/gnome/sources/sound-juicer/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	2450626f15847d922e47781e3e259b83
+# Source0-md5:	59a5e142cf39152bcbc1467d02e4494a
 Patch0:		%{name}-desktop.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
@@ -23,12 +23,12 @@ BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
 BuildRequires:	nautilus-cd-burner-devel >= 2.10.0-2
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.176
+BuildRequires:	rpmbuild(macros) >= 1.196
 BuildRequires:	scrollkeeper >= 0.3.5
-Requires(post):	GConf2
-Requires(post):	scrollkeeper
+Requires(post,preun):	GConf2
+Requires(post,postun):	scrollkeeper
 Requires:	gstreamer-cdparanoia >= 0.8.8
-Requires:	nautilus-cd-burner-libs >= 2.10.0
+Requires:	nautilus-cd-burner-libs >= 2.10.0-2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -64,8 +64,8 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/usr/bin/scrollkeeper-update
-%gconf_schema_install
+/usr/bin/scrollkeeper-update -q
+%gconf_schema_install /etc/gconf/schemas/sound-juicer.schemas
 %banner %{name} -e << EOF
 To be able to rip a CD, You need to install appropriate
 GStreamer plugins:
@@ -74,7 +74,15 @@ GStreamer plugins:
 - gstreamer-vorbis (encoding to Ogg Vorbis)
 EOF
 
-%postun -p /usr/bin/scrollkeeper-update
+%preun
+if [ $1 = 0 ]; then
+	%gconf_schema_uninstall /etc/gconf/schemas/sound-juicer.schemas
+fi
+
+%postun
+if [ $1 = 0 ]; then
+	/usr/bin/scrollkeeper-update -q
+fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
