@@ -7,7 +7,6 @@ License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.burtonini.com/computing/%{name}-%{version}.tar.gz
 # Source0-md5:	0b3fcd80d91c78153961378b5c2f01a3
-#Patch0:		%{name}-devfs.patch //obsoleted?
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
@@ -35,7 +34,6 @@ Sound Juicer, ripper p³yt CD u¿ywaj±cy GTK+ i GStreamera.
 
 %prep
 %setup -q
-#%patch0 -p1 //Obsoleted?
 
 %build
 %{__aclocal}
