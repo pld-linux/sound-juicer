@@ -1,12 +1,12 @@
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
-Version:	0.4.1
+Version:	0.5
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.burtonini.com/computing/%{name}-%{version}.tar.gz
-# Source0-md5:	79fbeb3fc6228dd1aa4c06f272b9dff5
+# Source0-md5:	3357ca1062d32e8b17829fb7eaf62ccc
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
 BuildRequires:	gtk+2-devel
@@ -17,6 +17,7 @@ BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel
 BuildRequires:	libmusicbrainz-devel >= 2.0.1
 Requires(post):	GConf2
+Requires(post):	scrollkeeper
 Requires:	gstreamer-cdparanoia >= 0.6.1
 Requires:	gstreamer-vorbis >= 0.6.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -49,7 +50,10 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
+/usr/bin/scrollkeeper-update
 %gconf_schema_install
+
+%postun -p /usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -59,3 +63,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_desktopdir}/*
 %{_pixmapsdir}/*
+%{_omf_dest_dir}/%{name}
