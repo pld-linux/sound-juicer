@@ -24,7 +24,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Sound Juicer, a CD ripping tool using GTK+ and GStreamer.
 
 %description -l pl
-Sound Juicer, ripper p³yt CD u¿uwaj±cy GTK+ i GStreamera.
+Sound Juicer, ripper p³yt CD u¿ywaj±cy GTK+ i GStreamera.
 
 %prep
 %setup -q
