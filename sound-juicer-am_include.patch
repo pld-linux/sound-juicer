@@ -1,0 +1,12 @@
+diff -urN sound-juicer-0.5.13.orig/src/Makefile.am sound-juicer-0.5.13/src/Makefile.am
+--- sound-juicer-0.5.13.orig/src/Makefile.am	2004-09-08 16:51:04.000000000 +0200
++++ sound-juicer-0.5.13/src/Makefile.am	2004-10-03 00:59:33.851212944 +0200
+@@ -13,7 +13,7 @@
+ 	-DPIXMAPDIR=\""$(datadir)/pixmaps"\" \
+ 	-DPKGDATADIR=\""$(datadir)/sound-juicer"\" \
+ 	@MUSICBRAINZ_CFLAGS@ @GSTREAMER_CFLAGS@ \
+-	@UI_CFLAGS@
++	@UI_CFLAGS@ @HAL_CFLAGS@
+ 
+ 
+ # We always build Sound Juicer
