@@ -1,0 +1,19 @@
+diff -urN aa/sound-juicer-0.5.10.1/src/cd-drive.c sound-juicer-0.5.10.1/src/cd-drive.c
+--- aa/sound-juicer-0.5.10.1/src/cd-drive.c	2004-01-17 17:54:01.000000000 +0100
++++ sound-juicer-0.5.10.1/src/cd-drive.c	2004-04-03 23:45:42.339541304 +0200
+@@ -573,13 +573,13 @@
+ 	GList *cdroms_list;
+ 	gboolean have_devfs;
+ 
+-	/* devfs creates and populates the /dev/cdroms directory when its mounted
++	/* devfs creates and populates the /proc/fs/devfs directory when its mounted
+ 	 * the 'old style names' are matched with devfs names below.
+ 	 * The cdroms.device string gets cleaned up again in cdrom_get_name()
+ 	 * we need the oldstyle name to get device->display_name for ide.
+ 	 */
+ 	have_devfs = FALSE;
+-	if (g_file_test ("/dev/cdroms", G_FILE_TEST_IS_DIR)) {
++	if (g_file_test ("/proc/fs/devfs", G_FILE_TEST_IS_DIR)) {
+ 		have_devfs = TRUE;
+ 	}
+ 	
