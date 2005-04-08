@@ -23,7 +23,7 @@ BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
 BuildRequires:	nautilus-cd-burner-devel >= 2.10.0-2
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.196
+BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.5
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
@@ -64,8 +64,8 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/usr/bin/scrollkeeper-update -q
-%gconf_schema_install /etc/gconf/schemas/sound-juicer.schemas
+%gconf_schema_install sound-juicer.schemas
+%scrollkeeper_update_post
 %banner %{name} -e << EOF
 To be able to rip a CD, You need to install appropriate
 GStreamer plugins:
@@ -75,14 +75,10 @@ GStreamer plugins:
 EOF
 
 %preun
-if [ $1 = 0 ]; then
-	%gconf_schema_uninstall /etc/gconf/schemas/sound-juicer.schemas
-fi
+%gconf_schema_uninstall sound-juicer.schemas
 
 %postun
-if [ $1 = 0 ]; then
-	/usr/bin/scrollkeeper-update -q
-fi
+%scrollkeeper_update_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
