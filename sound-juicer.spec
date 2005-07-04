@@ -21,14 +21,14 @@ BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
-BuildRequires:	nautilus-cd-burner-devel >= 2.10.0-2
+BuildRequires:	nautilus-cd-burner-devel >= 2.11.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.5
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
 Requires:	gstreamer-cdparanoia >= 0.8.8
-Requires:	nautilus-cd-burner-libs >= 2.10.0-2
+Requires:	nautilus-cd-burner-libs >= 2.11.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
