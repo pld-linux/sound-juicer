@@ -21,6 +21,7 @@ BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
+BuildRequires:	libtool
 BuildRequires:	nautilus-cd-burner-devel >= 2.11.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
