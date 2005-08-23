@@ -1,17 +1,17 @@
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
-Version:	2.11.91
-Release:	2
+Version:	2.11.92
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://ftp.gnome.org/pub/gnome/sources/sound-juicer/2.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	226e799fea83a5522ea6d5babefd261e
+# Source0-md5:	b3e5f8e2dd1c3cf1246ed797903228d7
 Patch0:		%{name}-desktop.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.52
-BuildRequires:	automake >= 1.6
+BuildRequires:	automake >= 1.9
 BuildRequires:	gnome-doc-utils >= 0.3.1-2
 BuildRequires:	gnome-media-devel >= 2.11.91
 BuildRequires:	gnome-vfs2-devel >= 2.10.0-2
@@ -89,8 +89,8 @@ EOF
 %defattr(644,root,root,755)
 %doc AUTHORS README TODO
 %attr(755,root,root) %{_bindir}/*
-%{_sysconfdir}/gconf/schemas/sound-juicer.schemas
 %{_datadir}/%{name}
 %{_desktopdir}/*
-%{_pixmapsdir}/*
 %{_omf_dest_dir}/%{name}
+%{_pixmapsdir}/*
+%{_sysconfdir}/gconf/schemas/sound-juicer.schemas
