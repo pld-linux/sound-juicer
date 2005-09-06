@@ -1,34 +1,36 @@
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
-Version:	2.10.1
+Version:	2.12.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://ftp.gnome.org/pub/gnome/sources/sound-juicer/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	59a5e142cf39152bcbc1467d02e4494a
+Source0:	http://ftp.gnome.org/pub/gnome/sources/sound-juicer/2.12/%{name}-%{version}.tar.bz2
+# Source0-md5:	d5115a74bd51c8b35e49eb8137f5e301
 Patch0:		%{name}-desktop.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.52
-BuildRequires:	automake >= 1.6
-BuildRequires:	gnome-media-devel >= 2.10.0-0.2
+BuildRequires:	automake >= 1.9
+BuildRequires:	gnome-doc-utils >= 0.3.1-2
+BuildRequires:	gnome-media-devel >= 2.11.91
 BuildRequires:	gnome-vfs2-devel >= 2.10.0-2
 BuildRequires:	gstreamer-GConf-devel >= 0.8.8
 BuildRequires:	gstreamer-devel >= 0.8.9
-BuildRequires:	gtk+2-devel >= 2:2.6.3
+BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
-BuildRequires:	nautilus-cd-burner-devel >= 2.10.0-2
+BuildRequires:	libtool
+BuildRequires:	nautilus-cd-burner-devel >= 2.12.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.5
 Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
 Requires:	gstreamer-cdparanoia >= 0.8.8
-Requires:	nautilus-cd-burner-libs >= 2.10.0-2
+Requires:	nautilus-cd-burner-libs >= 2.12.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,11 +44,14 @@ Sound Juicer, ripper p³yt CD u¿ywaj±cy GTK+ i GStreamera.
 %patch0 -p1
 
 %build
+gnome-doc-prepare --copy --force
+%{__intltoolize}
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable--schemas-install \
+	--disable--schemas-install
 %{__make}
 
 %install
@@ -84,8 +89,8 @@ EOF
 %defattr(644,root,root,755)
 %doc AUTHORS README TODO
 %attr(755,root,root) %{_bindir}/*
-%{_sysconfdir}/gconf/schemas/*
 %{_datadir}/%{name}
 %{_desktopdir}/*
-%{_pixmapsdir}/*
 %{_omf_dest_dir}/%{name}
+%{_pixmapsdir}/*
+%{_sysconfdir}/gconf/schemas/sound-juicer.schemas
