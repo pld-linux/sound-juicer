@@ -19,6 +19,7 @@ BuildRequires:	gstreamer-GConf >= 0.10.1
 BuildRequires:	gstreamer-devel >= 0.8.9
 BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	intltool >= 0.33
+BuildRequires:	libcdio-devel
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
