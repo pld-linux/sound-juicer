@@ -13,17 +13,17 @@ BuildRequires:	GConf2-devel
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.9
 BuildRequires:	gnome-doc-utils >= 0.3.1-2
-BuildRequires:	gnome-media-devel >= 2.11.91
-BuildRequires:	gnome-vfs2-devel >= 2.10.0-2
+BuildRequires:	gnome-media-devel >= 2.14.0
+BuildRequires:	gnome-vfs2-devel >= 2.14.0
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.3
 BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libcdio-devel
 BuildRequires:	libglade2-devel
-BuildRequires:	libgnomeui-devel >= 2.13.0
+BuildRequires:	libgnomeui-devel >= 2.14.0
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
 BuildRequires:	libtool
-BuildRequires:	nautilus-cd-burner-devel >= 2.13.93
+BuildRequires:	nautilus-cd-burner-devel >= 2.14.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.5
@@ -31,7 +31,7 @@ Requires(post,preun):	GConf2
 Requires(post,postun):	scrollkeeper
 Requires:	gstreamer-cdparanoia >= 0.10
 Requires:	hicolor-icon-theme
-Requires:	nautilus-cd-burner-libs >= 2.12.0
+Requires:	nautilus-cd-burner-libs >= 2.14.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
