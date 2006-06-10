@@ -1,38 +1,39 @@
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
-Version:	2.14.4
+Version:	2.15.2.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://ftp.gnome.org/pub/gnome/sources/sound-juicer/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	677ed6e3e7b4aa1602d35c46a8e0bc31
+Source0:	http://ftp.gnome.org/pub/gnome/sources/sound-juicer/2.15/%{name}-%{version}.tar.bz2
+# Source0-md5:	993f0e4689b8ecd0da038338bae6b1d0
 Patch0:		%{name}-desktop.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
-BuildRequires:	GConf2-devel
+BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.9
-BuildRequires:	gnome-doc-utils >= 0.3.1-2
+BuildRequires:	gnome-doc-utils >= 0.6.0
 BuildRequires:	gnome-media-devel >= 2.14.0
-BuildRequires:	gnome-vfs2-devel >= 2.14.0
-BuildRequires:	gstreamer-plugins-base-devel >= 0.10.3
-BuildRequires:	gtk+2-devel >= 2:2.8.0
-BuildRequires:	intltool >= 0.33
+BuildRequires:	gnome-vfs2-devel >= 2.15.1
+BuildRequires:	gstreamer-plugins-base-devel >= 0.10.7
+BuildRequires:	gtk+2-devel >= 2:2.9.2
+BuildRequires:	intltool >= 0.35
 BuildRequires:	libcdio-devel
-BuildRequires:	libglade2-devel
-BuildRequires:	libgnomeui-devel >= 2.14.0
+BuildRequires:	libglade2-devel >= 1:2.5.1
+BuildRequires:	libgnomeui-devel >= 2.15.1
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
 BuildRequires:	libtool
-BuildRequires:	nautilus-cd-burner-devel >= 2.14.0
+BuildRequires:	nautilus-cd-burner-devel >= 2.15.2
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.5
-Requires(post,preun):	GConf2
+Requires(post,preun):	GConf2 >= 2.14.0
+Requires(post,postun):	gtk+2 >= 2:2.9.2
 Requires(post,postun):	scrollkeeper
 Requires:	gstreamer-cdparanoia >= 0.10
 Requires:	hicolor-icon-theme
-Requires:	libgnomeui >= 2.14.0
-Requires:	nautilus-cd-burner-libs >= 2.14.0
+Requires:	libgnomeui >= 2.15.1
+Requires:	nautilus-cd-burner-libs >= 2.15.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -64,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/ug
 
 %find_lang %{name} --with-gnome
 
@@ -74,6 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %gconf_schema_install sound-juicer.schemas
 %scrollkeeper_update_post
+gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
 %banner %{name} -e << EOF
 To be able to rip a CD, You need to install appropriate
 GStreamer plugins:
@@ -87,6 +89,7 @@ EOF
 
 %postun
 %scrollkeeper_update_postun
+gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
