@@ -1,20 +1,20 @@
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
-Version:	2.15.2.1
+Version:	2.15.3
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://ftp.gnome.org/pub/gnome/sources/sound-juicer/2.15/%{name}-%{version}.tar.bz2
-# Source0-md5:	993f0e4689b8ecd0da038338bae6b1d0
+# Source0-md5:	050cc1db0c681d023b784a4c8a9c9738
 Patch0:		%{name}-desktop.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.9
-BuildRequires:	gnome-doc-utils >= 0.6.0
+BuildRequires:	gnome-doc-utils >= 0.7.1
 BuildRequires:	gnome-media-devel >= 2.14.0
-BuildRequires:	gnome-vfs2-devel >= 2.15.1
+BuildRequires:	gnome-vfs2-devel >= 2.15.2
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.7
 BuildRequires:	gtk+2-devel >= 2:2.9.2
 BuildRequires:	intltool >= 0.35
@@ -23,7 +23,7 @@ BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeui-devel >= 2.15.1
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
 BuildRequires:	libtool
-BuildRequires:	nautilus-cd-burner-devel >= 2.15.2
+BuildRequires:	nautilus-cd-burner-devel >= 2.15.3
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper >= 0.3.5
@@ -33,7 +33,7 @@ Requires(post,postun):	scrollkeeper
 Requires:	gstreamer-cdparanoia >= 0.10
 Requires:	hicolor-icon-theme
 Requires:	libgnomeui >= 2.15.1
-Requires:	nautilus-cd-burner-libs >= 2.15.2
+Requires:	nautilus-cd-burner-libs >= 2.15.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
