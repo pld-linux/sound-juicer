@@ -1,12 +1,12 @@
 Summary:	CD ripper
 Summary(pl):	Ripper p³yt CD
 Name:		sound-juicer
-Version:	2.14.4
+Version:	2.14.5
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://ftp.gnome.org/pub/gnome/sources/sound-juicer/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	677ed6e3e7b4aa1602d35c46a8e0bc31
+# Source0-md5:	2bb23f1bd7751eb9f14f2446beed15e0
 Patch0:		%{name}-desktop.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel
@@ -74,6 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %gconf_schema_install sound-juicer.schemas
 %scrollkeeper_update_post
+gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
 %banner %{name} -e << EOF
 To be able to rip a CD, You need to install appropriate
 GStreamer plugins:
@@ -87,6 +88,7 @@ EOF
 
 %postun
 %scrollkeeper_update_postun
+gtk-update-icon-cache -qf %{_datadir}/icons/hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
