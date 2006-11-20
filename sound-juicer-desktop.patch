@@ -1,7 +1,7 @@
-diff -urN sound-juicer-0.6.0.orig/data/sound-juicer.desktop.in sound-juicer-0.6.0/data/sound-juicer.desktop.in
---- sound-juicer-0.6.0.orig/data/sound-juicer.desktop.in	2005-02-11 00:09:09.839882912 +0100
-+++ sound-juicer-0.6.0/data/sound-juicer.desktop.in	2005-02-11 00:10:36.894648576 +0100
-@@ -7,7 +7,7 @@
+diff -urN sound-juicer-2.16.2/data/sound-juicer.desktop.in.in sound-juicer-2.16.2.new/data/sound-juicer.desktop.in.in
+--- sound-juicer-2.16.2/data/sound-juicer.desktop.in.in	2006-10-17 22:58:10.000000000 +0200
++++ sound-juicer-2.16.2.new/data/sound-juicer.desktop.in.in	2006-11-20 15:02:54.000000000 +0100
+@@ -8,7 +8,7 @@
  StartupNotify=true
  Terminal=false
  Type=Application
