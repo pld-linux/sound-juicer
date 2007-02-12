@@ -1,5 +1,5 @@
 Summary:	CD ripper
-Summary(pl):	Ripper p≥yt CD
+Summary(pl.UTF-8):   Ripper p≈Çyt CD
 Name:		sound-juicer
 Version:	2.16.3
 Release:	1
@@ -40,8 +40,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Sound Juicer, a CD ripping tool using GTK+ and GStreamer.
 
-%description -l pl
-Sound Juicer, ripper p≥yt CD uøywaj±cy GTK+ i GStreamera.
+%description -l pl.UTF-8
+Sound Juicer, ripper p≈Çyt CD u≈ºywajƒÖcy GTK+ i GStreamera.
 
 %prep
 %setup -q
