@@ -1,5 +1,5 @@
 Summary:	CD ripper
-Summary(pl.UTF-8):   Ripper płyt CD
+Summary(pl.UTF-8):	Ripper płyt CD
 Name:		sound-juicer
 Version:	2.16.3
 Release:	1
