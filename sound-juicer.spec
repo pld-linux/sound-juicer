@@ -1,40 +1,40 @@
 Summary:	CD ripper
 Summary(pl.UTF-8):	Ripper płyt CD
 Name:		sound-juicer
-Version:	2.16.3
+Version:	2.16.4
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://ftp.gnome.org/pub/gnome/sources/sound-juicer/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	cfe4199f4f50c2a8f8178db4097209e4
+# Source0-md5:	bcf1f77027b1d1d4c1667b20c6448122
 Patch0:		%{name}-desktop.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
-BuildRequires:	GConf2-devel >= 2.16.0
+BuildRequires:	GConf2-devel >= 2.18.0.1
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.9
-BuildRequires:	gnome-doc-utils >= 0.8.0
-BuildRequires:	gnome-media-devel >= 2.16.1
-BuildRequires:	gnome-vfs2-devel >= 2.16.3
+BuildRequires:	gnome-doc-utils >= 0.10.3
+BuildRequires:	gnome-media-devel >= 2.18.0
+BuildRequires:	gnome-vfs2-devel >= 2.18.1
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.10
-BuildRequires:	gtk+2-devel >= 2:2.10.9
-BuildRequires:	hal-devel >= 0.5.7.1
+BuildRequires:	gtk+2-devel >= 2:2.10.11
+BuildRequires:	hal-devel >= 0.5.9
 BuildRequires:	intltool >= 0.35.4
 BuildRequires:	libcdio-devel
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.16.1
+BuildRequires:	libgnomeui-devel >= 2.18.1
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
 BuildRequires:	libtool
-BuildRequires:	nautilus-cd-burner-devel >= 2.16.3
+BuildRequires:	nautilus-cd-burner-devel >= 2.18.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper >= 0.3.5
 Requires(post,postun):	gtk+2
 Requires(post,postun):	scrollkeeper
-Requires(post,preun):	GConf2 >= 2.16.0
+Requires(post,preun):	GConf2
 Requires:	gstreamer-cdparanoia >= 0.10.10
 Requires:	hicolor-icon-theme
-Requires:	libgnomeui >= 2.16.1
-Requires:	nautilus-cd-burner-libs >= 2.16.3
+Requires:	libgnomeui >= 2.18.1
+Requires:	nautilus-cd-burner-libs >= 2.18.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
