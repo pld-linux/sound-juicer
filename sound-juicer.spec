@@ -35,6 +35,9 @@ Requires:	gstreamer-cdparanoia >= 0.10.10
 Requires:	hicolor-icon-theme
 Requires:	libgnomeui >= 2.18.1
 Requires:	nautilus-cd-burner-libs >= 2.18.1
+Suggests:	gstreamer-audio-formats
+Suggests:	gstreamer-flac
+Suggests:	gstreamer-vorbis
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -75,13 +78,6 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_install sound-juicer.schemas
 %scrollkeeper_update_post
 %update_icon_cache hicolor
-%banner %{name} -e << EOF
-To be able to rip a CD, You need to install appropriate
-GStreamer plugins:
-- gstreamer-audio-formats (encoding to WAVE)
-- gstreamer-flac (encoding to FLAC)
-- gstreamer-vorbis (encoding to Ogg Vorbis)
-EOF
 
 %preun
 %gconf_schema_uninstall sound-juicer.schemas
