@@ -9,22 +9,22 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/sound-juicer/2.20/%{name}-%{vers
 # Source0-md5:	906079dba98770f5185fd43359c9459d
 Patch0:		%{name}-desktop.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
-BuildRequires:	GConf2-devel >= 2.18.0.1
+BuildRequires:	GConf2-devel >= 2.19.1
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.9
-BuildRequires:	gnome-doc-utils >= 0.10.3
-BuildRequires:	gnome-media-devel >= 2.18.0
-BuildRequires:	gnome-vfs2-devel >= 2.18.1
+BuildRequires:	gnome-doc-utils >= 0.12.0
+BuildRequires:	gnome-media-devel >= 2.20.0
+BuildRequires:	gnome-vfs2-devel >= 2.20.0
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.10
-BuildRequires:	gtk+2-devel >= 2:2.10.11
+BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	hal-devel >= 0.5.9
-BuildRequires:	intltool >= 0.35.4
+BuildRequires:	intltool >= 0.36.2
 BuildRequires:	libcdio-devel >= 0.70
-BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.18.1
+BuildRequires:	libglade2-devel >= 1:2.6.2
+BuildRequires:	libgnomeui-devel >= 2.19.1
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
 BuildRequires:	libtool
-BuildRequires:	nautilus-cd-burner-devel >= 2.18.1
+BuildRequires:	nautilus-cd-burner-devel >= 2.20.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper >= 0.3.5
@@ -33,8 +33,8 @@ Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	gstreamer-cdparanoia >= 0.10.10
 Requires:	hicolor-icon-theme
-Requires:	libgnomeui >= 2.18.1
-Requires:	nautilus-cd-burner-libs >= 2.18.1
+Requires:	libgnomeui >= 2.19.1
+Requires:	nautilus-cd-burner-libs >= 2.20.0
 Suggests:	gstreamer-audio-formats
 Suggests:	gstreamer-flac
 Suggests:	gstreamer-vorbis
