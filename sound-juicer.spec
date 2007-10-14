@@ -1,15 +1,15 @@
 Summary:	CD ripper
 Summary(pl.UTF-8):	Ripper płyt CD
 Name:		sound-juicer
-Version:	2.20.0
+Version:	2.20.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://ftp.gnome.org/pub/gnome/sources/sound-juicer/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	906079dba98770f5185fd43359c9459d
+# Source0-md5:	cea3c67215c99acf513ee7ea4b5eba7b
 Patch0:		%{name}-desktop.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
-BuildRequires:	GConf2-devel >= 2.19.1
+BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1.9
 BuildRequires:	gnome-doc-utils >= 0.12.0
@@ -21,7 +21,7 @@ BuildRequires:	hal-devel >= 0.5.9
 BuildRequires:	intltool >= 0.36.2
 BuildRequires:	libcdio-devel >= 0.70
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.19.1
+BuildRequires:	libgnomeui-devel >= 2.20.0
 BuildRequires:	libmusicbrainz-devel >= 2.1.0
 BuildRequires:	libtool
 BuildRequires:	nautilus-cd-burner-devel >= 2.20.0
@@ -33,7 +33,7 @@ Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	gstreamer-cdparanoia >= 0.10.10
 Requires:	hicolor-icon-theme
-Requires:	libgnomeui >= 2.19.1
+Requires:	libgnomeui >= 2.20.0
 Requires:	nautilus-cd-burner-libs >= 2.20.0
 Suggests:	gstreamer-audio-formats
 Suggests:	gstreamer-flac
