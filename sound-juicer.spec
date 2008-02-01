@@ -1,15 +1,15 @@
 Summary:	CD ripper
 Summary(pl.UTF-8):	Ripper płyt CD
 Name:		sound-juicer
-Version:	2.21.2
+Version:	2.21.3
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/sound-juicer/2.21/%{name}-%{version}.tar.bz2
-# Source0-md5:	e40ce70107c4a76efa274bb13ab27fa7
+# Source0-md5:	819d20d237c1211e24d24d667ec93b76
 Patch0:		%{name}-desktop.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
-BuildRequires:	GConf2-devel >= 2.21.0
+BuildRequires:	GConf2-devel >= 2.21.90
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gnome-common >= 2.20.0
@@ -19,11 +19,11 @@ BuildRequires:	gnome-doc-utils >= 0.12.0
 BuildRequires:	gnome-media-devel >= 2.20.0
 BuildRequires:	gnome-vfs2-devel >= 2.20.0
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.10
-BuildRequires:	gtk+2-devel >= 2:2.12.0
-BuildRequires:	intltool >= 0.36.2
+BuildRequires:	gtk+2-devel >= 2:2.12.5
+BuildRequires:	intltool >= 0.37.0
 BuildRequires:	libcdio-devel >= 0.70
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.21.0
+BuildRequires:	libgnomeui-devel >= 2.21.90
 BuildRequires:	taglib-devel
 BuildRequires:	libmusicbrainz-devel >= 2.1.3
 BuildRequires:	libtool
@@ -38,7 +38,7 @@ Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	gstreamer-cdparanoia >= 0.10.10
-Requires:	libgnomeui >= 2.21.0
+Requires:	libgnomeui >= 2.21.90
 Requires:	nautilus-cd-burner-libs >= 2.20.0
 Suggests:	gstreamer-audio-formats
 Suggests:	gstreamer-flac
@@ -68,6 +68,7 @@ mv po/sr@{Latn,latin}.po
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--disable-schemas-install \
