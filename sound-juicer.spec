@@ -73,6 +73,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/en@shaw
+
 %find_lang %{name} --with-gnome --with-omf
 
 %clean
