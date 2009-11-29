@@ -13,6 +13,7 @@ BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	brasero-devel >= 2.26.0
 BuildRequires:	dbus-glib-devel >= 0.74
+BuildRequires:	docbook-dtd43-xml
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.20.0
 BuildRequires:	gnome-common >= 2.24.0
@@ -26,6 +27,7 @@ BuildRequires:	libcdio-devel >= 0.70
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libmusicbrainz3-devel >= 3.0.0
 BuildRequires:	libtool
+BuildRequires:	libxml2-progs
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
