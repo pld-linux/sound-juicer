@@ -1,12 +1,12 @@
 Summary:	CD ripper
 Summary(pl.UTF-8):	Ripper płyt CD
 Name:		sound-juicer
-Version:	2.28.1
-Release:	3
+Version:	2.28.2
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/sound-juicer/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	680c036ca9b062fe198fada30edbf534
+# Source0-md5:	b40da7b2888d0c658fcfdff104ac8bbb
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	autoconf >= 2.52
@@ -32,6 +32,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper >= 0.3.5
+BuildRequires:	sed >= 4.0
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
@@ -55,6 +56,9 @@ Sound Juicer, ripper płyt CD używający GTK+ i GStreamera.
 %prep
 %setup -q
 
+sed -i -e 's/^en@shaw//' po/LINGUAS
+rm -f po/en@shaw.po
+
 %build
 %{__gnome_doc_prepare}
 %{__intltoolize}
@@ -65,7 +69,8 @@ Sound Juicer, ripper płyt CD używający GTK+ i GStreamera.
 %{__automake}
 %configure \
 	--disable-schemas-install \
-	--disable-scrollkeeper
+	--disable-scrollkeeper \
+	--disable-silent-rules
 %{__make}
 
 %install
@@ -74,8 +79,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
-
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/en@shaw
 
 %find_lang %{name} --with-gnome --with-omf
 
