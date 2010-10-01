@@ -1,12 +1,12 @@
 Summary:	CD ripper
 Summary(pl.UTF-8):	Ripper płyt CD
 Name:		sound-juicer
-Version:	2.28.2
+Version:	2.32.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/sound-juicer/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	b40da7b2888d0c658fcfdff104ac8bbb
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/sound-juicer/2.32/%{name}-%{version}.tar.bz2
+# Source0-md5:	8261bd1f450d7056d15828ed2a69ef65
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	autoconf >= 2.52
@@ -20,11 +20,9 @@ BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gnome-media-devel >= 2.24.0
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.15
-BuildRequires:	gtk+2-devel >= 2:2.16.0
+BuildRequires:	gtk+2-devel >= 2:2.20.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libcanberra-gtk-devel
-BuildRequires:	libcdio-devel >= 0.70
-BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libmusicbrainz3-devel >= 3.0.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-progs
