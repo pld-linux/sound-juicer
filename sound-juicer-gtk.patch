@@ -1,0 +1,12 @@
+diff -up sound-juicer-2.32.0/src/sj-main.c.gtk-build sound-juicer-2.32.0/src/sj-main.c
+--- sound-juicer-2.32.0/src/sj-main.c.gtk-build	2010-09-28 21:29:27.603472020 -0400
++++ sound-juicer-2.32.0/src/sj-main.c	2010-09-28 21:28:16.154471988 -0400
+@@ -113,7 +113,7 @@ sj_stock_init (void)
+ 
+   static const GtkStockItem sj_stock_items[] =
+   {
+-    { SJ_STOCK_EXTRACT, N_("E_xtract"), GDK_CONTROL_MASK, GDK_Return, NULL }
++    { SJ_STOCK_EXTRACT, N_("E_xtract"), GDK_CONTROL_MASK, GDK_KEY_Return, NULL }
+   };
+ 
+   if (initialized)
