@@ -7,22 +7,28 @@ License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/sound-juicer/2.32/%{name}-%{version}.tar.bz2
 # Source0-md5:	8261bd1f450d7056d15828ed2a69ef65
+# https://bugzilla.gnome.org/show_bug.cgi?id=630868
+Patch0:		%{name}-gtk.patch
+# https://bugzilla.gnome.org/show_bug.cgi?id=631887
+Patch1:		%{name}-drawable.patch
+# https://bugzilla.gnome.org/show_bug.cgi?id=634729
+Patch2:		%{name}-profiles.patch
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	brasero-devel >= 2.26.0
+BuildRequires:	brasero-devel >= 3.0.0
 BuildRequires:	dbus-glib-devel >= 0.74
 BuildRequires:	docbook-dtd43-xml
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.20.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gnome-media-devel >= 2.24.0
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.15
-BuildRequires:	gtk+2-devel >= 2:2.20.0
+BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libcanberra-gtk-devel
+BuildRequires:	libcanberra-gtk3-devel
+BuildRequires:	libgnome-media-profiles-devel
 BuildRequires:	libmusicbrainz3-devel >= 3.0.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-progs
@@ -30,12 +36,11 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper >= 0.3.5
-BuildRequires:	sed >= 4.0
 Requires(post,postun):	gtk-update-icon-cache
-Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
 Requires:	gstreamer-cdparanoia >= 0.10.10
+Requires:	hicolor-icon-theme
 Suggests:	gstreamer-audio-formats
 Suggests:	gstreamer-flac
 Suggests:	gstreamer-lame
@@ -53,9 +58,9 @@ Sound Juicer, ripper płyt CD używający GTK+ i GStreamera.
 
 %prep
 %setup -q
-
-sed -i -e 's/^en@shaw//' po/LINGUAS
-rm -f po/en@shaw.po
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 %{__gnome_doc_prepare}
@@ -68,7 +73,8 @@ rm -f po/en@shaw.po
 %configure \
 	--disable-schemas-install \
 	--disable-scrollkeeper \
-	--disable-silent-rules
+	--disable-silent-rules \
+	--with-gtk=3.0
 %{__make}
 
 %install
