@@ -2,7 +2,7 @@ Summary:	CD ripper
 Summary(pl.UTF-8):	Ripper płyt CD
 Name:		sound-juicer
 Version:	2.32.0
-Release:	4
+Release:	5
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/sound-juicer/2.32/%{name}-%{version}.tar.bz2
@@ -46,6 +46,7 @@ Suggests:	gstreamer-flac
 Suggests:	gstreamer-lame
 Suggests:	gstreamer-taglib
 Suggests:	gstreamer-vorbis
+Requires:	desktop-file-utils
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -92,6 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %gconf_schema_install sound-juicer.schemas
 %scrollkeeper_update_post
+%update_desktop_database
 %update_icon_cache hicolor
 
 %preun
