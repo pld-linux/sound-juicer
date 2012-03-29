@@ -21,7 +21,8 @@ BuildRequires:	gstreamer-plugins-base-devel >= 0.10.32
 BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libcanberra-gtk3-devel
-BuildRequires:	libmusicbrainz3-devel >= 3.0.0
+BuildRequires:	libdiscid-devel
+BuildRequires:	libmusicbrainz4-devel >= 4.0.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-progs
 BuildRequires:	pkgconfig
