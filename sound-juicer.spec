@@ -1,41 +1,41 @@
 Summary:	CD ripper
 Summary(pl.UTF-8):	Ripper płyt CD
 Name:		sound-juicer
-Version:	3.4.0
+Version:	3.12.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/sound-juicer/3.4/%{name}-%{version}.tar.xz
-# Source0-md5:	a913b246260ccf3843ea779ae9cdb5e7
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/sound-juicer/3.12/%{name}-%{version}.tar.xz
+# Source0-md5:	72eec63540026139d9aa855a2839a5cb
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
-BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	brasero-devel >= 3.0.0
 BuildRequires:	docbook-dtd43-xml
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.20.0
+BuildRequires:	glib2-devel >= 1:2.32.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gstreamer-plugins-base-devel >= 0.10.32
-BuildRequires:	gtk+3-devel >= 3.0.0
-BuildRequires:	intltool >= 0.40.0
+BuildRequires:	gsettings-desktop-schemas-devel
+BuildRequires:	gstreamer-plugins-base-devel >= 1.0
+BuildRequires:	gtk+3-devel >= 3.2.0
+BuildRequires:	intltool >= 0.50.0
+BuildRequires:	iso-codes
 BuildRequires:	libcanberra-gtk3-devel
 BuildRequires:	libdiscid-devel
-BuildRequires:	libmusicbrainz4-devel >= 4.0.0
+BuildRequires:	libmusicbrainz5-devel >= 5.0.1
 BuildRequires:	libtool
 BuildRequires:	libxml2-progs
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
-BuildRequires:	scrollkeeper >= 0.3.5
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires(post,postun):	glib2 >= 1:2.26.0
 Requires(post,postun):	gtk-update-icon-cache
-Requires(post,postun):	scrollkeeper
-Requires(post,preun):	GConf2
 Requires:	desktop-file-utils
-Requires:	gstreamer-cdparanoia >= 0.10.10
+Requires:	gsettings-desktop-schemas
+Requires:	gstreamer-cdparanoia >= 1.0.0
 Requires:	hicolor-icon-theme
 Suggests:	gstreamer-audio-formats
 Suggests:	gstreamer-flac
@@ -64,8 +64,6 @@ Sound Juicer, ripper płyt CD używający GTK+ i GStreamera.
 %{__autoheader}
 %{__automake}
 %configure \
-	--disable-schemas-install \
-	--disable-scrollkeeper \
 	--disable-silent-rules
 %{__make}
 
@@ -73,25 +71,20 @@ Sound Juicer, ripper płyt CD używający GTK+ i GStreamera.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang %{name} --with-gnome --with-omf
+%find_lang %{name} --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%gconf_schema_install sound-juicer.schemas
-%scrollkeeper_update_post
 %update_desktop_database
 %update_icon_cache hicolor
-
-%preun
-%gconf_schema_uninstall sound-juicer.schemas
+%glib_compile_schemas
 
 %postun
-%scrollkeeper_update_postun
+%glib_compile_schemas
 %update_icon_cache hicolor
 
 %files -f %{name}.lang
@@ -99,7 +92,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS README TODO
 %attr(755,root,root) %{_bindir}/sound-juicer
 %{_datadir}/%{name}
+%{_datadir}/GConf/gsettings/sound-juicer.convert
+%{_datadir}/glib-2.0/schemas/org.gnome.sound-juicer.gschema.xml
 %{_mandir}/man1/sound-juicer.1*
 %{_desktopdir}/sound-juicer.desktop
 %{_iconsdir}/hicolor/*/apps/*
-%{_sysconfdir}/gconf/schemas/sound-juicer.schemas
