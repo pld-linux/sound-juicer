@@ -1,19 +1,19 @@
 Summary:	CD ripper
 Summary(pl.UTF-8):	Ripper płyt CD
 Name:		sound-juicer
-Version:	3.12.0
-Release:	2
+Version:	3.18.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/sound-juicer/3.12/%{name}-%{version}.tar.xz
-# Source0-md5:	72eec63540026139d9aa855a2839a5cb
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/sound-juicer/3.18/%{name}-%{version}.tar.xz
+# Source0-md5:	f1eb81119a81fcd650db1386cff6c2dc
 URL:		http://www.burtonini.com/blog/computers/sound-juicer/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	brasero-devel >= 3.0.0
 BuildRequires:	docbook-dtd43-xml
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.32.0
+BuildRequires:	glib2-devel >= 1:2.38.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gsettings-desktop-schemas-devel
@@ -31,6 +31,7 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.26.0
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	desktop-file-utils
@@ -94,6 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_datadir}/GConf/gsettings/sound-juicer.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.sound-juicer.gschema.xml
+%{_datadir}/appdata/sound-juicer.appdata.xml
 %{_mandir}/man1/sound-juicer.1*
 %{_desktopdir}/sound-juicer.desktop
 %{_iconsdir}/hicolor/*/apps/*
