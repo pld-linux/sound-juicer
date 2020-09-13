@@ -1,0 +1,13 @@
+--- sound-juicer-3.38.0/meson.build.orig	2020-09-12 05:40:20.643631200 +0200
++++ sound-juicer-3.38.0/meson.build	2020-09-13 17:10:44.776932926 +0200
+@@ -63,10 +63,6 @@
+ ]
+ 
+ gst_inspect = find_program('gst-inspect-1.0')
+-elements = ['vorbisenc', 'flacenc', 'wavenc', 'giosink']
+-foreach element : elements
+-  run_command(gst_inspect, '--exists', '--atleast-version=1.0', element, check: true)
+-endforeach
+ 
+ configure_file(
+   output: 'config.h',
