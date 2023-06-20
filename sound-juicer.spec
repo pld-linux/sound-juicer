@@ -1,12 +1,12 @@
 Summary:	CD ripper
 Summary(pl.UTF-8):	Ripper płyt CD
 Name:		sound-juicer
-Version:	3.38.0
+Version:	3.40.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/sound-juicer/3.38/%{name}-%{version}.tar.xz
-# Source0-md5:	d6d6315a8fd872107940f71d24e5cda2
+Source0:	https://download.gnome.org/sources/sound-juicer/3.40/%{name}-%{version}.tar.xz
+# Source0-md5:	c648769f8310a43c4b98970cc5d9a7ba
 Patch0:		%{name}-no-gst-modules-check.patch
 URL:		https://wiki.gnome.org/Apps/SoundJuicer
 BuildRequires:	appstream-glib
@@ -23,6 +23,8 @@ BuildRequires:	iso-codes
 BuildRequires:	libcanberra-gtk3-devel
 BuildRequires:	libdiscid-devel >= 0.4.0
 BuildRequires:	libmusicbrainz5-devel >= 5.0.1
+BuildRequires:	meson >= 0.57.0
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.736
@@ -70,7 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 %ninja_install -C build
 
 # packaged as %doc
-%{__rm} -r $RPM_BUILD_ROOT%{_prefix}/doc
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/sound-juicer
 
 %find_lang %{name} --with-gnome
 
