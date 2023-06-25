@@ -2,7 +2,7 @@ Summary:	CD ripper
 Summary(pl.UTF-8):	Ripper płyt CD
 Name:		sound-juicer
 Version:	3.40.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	https://download.gnome.org/sources/sound-juicer/3.40/%{name}-%{version}.tar.xz
@@ -73,6 +73,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # packaged as %doc
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/sound-juicer
+
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
 
 %find_lang %{name} --with-gnome
 
