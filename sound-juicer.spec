@@ -59,7 +59,7 @@ Sound Juicer, ripper płyt CD używający GTK+ i GStreamera.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %meson build
